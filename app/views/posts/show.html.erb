@@ -1,0 +1,9 @@
+<article>
+<header>
+<h2><%= @post.title %></h2>
+</header>
+<%= render_markdown(@post.content) %>
+</article>
+<footer>
+<span class="text-muted pull-right">Published <%= @post.created_at %> by <%= mail_to @post.user.email, @post.user.name %></span>
+</footer>

@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Lilliputian</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title><%= title %></title>
 
-<%= yield %>
-
-</body>
-</html>
+        <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>
+                        <%= title %>
+                        <small>
+                            <%= sub_title %>
+                        </small>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <%= render "layouts/alert" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <%= yield %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <hr>
+                    <footer>
+                    &copy; 2014 Author
+                    <span class="pull-right text-muted">This blog uses <%= link_to "Lilliputian", "http://www.bitbucket.org/argelius/lilliputian" %>, a tiny blog application i Rails.</span>
+                    </footer>
+                </div>
+            </div>
+        </body>
+    </html>
