@@ -1,0 +1,37 @@
+<h3>Tags</h3>
+
+<% if @tags.count == 0 %>
+    <p>No tags added.</p>
+<% else %>
+<ul class="list-inline">
+    <% @tags.each do |tag| %>
+        <li>
+            <%= link_to tag.tag, tag %>
+            <% if current_user %>
+                [<%= link_to "-", tag, :method=>:delete  %>]
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+<% end %>
+
+<% if !current_user.nil? %>
+    <hr>
+    <h5>Add new tag</h5>
+    <%= form_for @tag do |f| %>
+        <% messages = @tag.errors.messages %>
+        <div class="form-group <% if messages.has_key? :tag %>has-error<% end %>">
+            <%= f.text_field :tag, :class => "form-control", :autocomplete => :off %> 
+            <% if messages.has_key? :tag %>
+                <span class="help-block">
+                    <ul class="list-unstyled">
+                        <% messages[:tag].each do |m| %>
+                            <li>Tag <%= m %></li>
+                        <% end %>
+                    </ul>
+                </span>
+            <% end %>
+        </div> 
+        <%= f.submit("Add tag", :class => "btn btn-default") %>
+    <% end %>
+<% end %>

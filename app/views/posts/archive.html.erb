@@ -1,0 +1,8 @@
+<% @posts.each do |month, posts| %>
+    <h4><%= "#{month.strftime('%B %Y')} (#{posts.count}):" %></h4>
+    <ul>
+        <% for post in posts %>
+            <li><%= link_to post.title, post %></li>
+    <% end %>
+    </ul>
+<% end %>
