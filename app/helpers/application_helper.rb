@@ -12,6 +12,10 @@ module ApplicationHelper
         "Lilliputian"
     end
 
+    def author
+        "The Author"
+    end
+
     def sub_title
         "sub title"
     end

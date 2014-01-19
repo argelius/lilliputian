@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width"> 
+        <meta name="description" content="<%= title %> - <%= content_for?(:description) ? yield(:description) : "A blog." %>">
+        <meta name="keywords" content="">
+        <meta name="author" content="<%= author %>">
+        <title><%= title %> - <%= content_for?(:title) ? yield(:title) : "No title" %></title>
 
         <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -48,7 +54,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <hr>
                     <footer>
-                    &copy; 2014 Author
+                    &copy; 2014 <%= author %>
                     <span class="pull-right text-muted">This blog uses <%= link_to "Lilliputian", "http://www.bitbucket.org/argelius/lilliputian" %>, a tiny blog application written in Rails.</span>
                     </footer>
                 </div>

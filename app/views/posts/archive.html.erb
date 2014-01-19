@@ -1,3 +1,9 @@
+<%
+    content_for(:title, "Blog archive")
+    content_for(:description, "Blog archive")
+%>
+
+<h3>Blog archive</h3>
 <% @posts.each do |month, posts| %>
     <h4><%= "#{month.strftime('%B %Y')} (#{posts.count}):" %></h4>
     <ul>
