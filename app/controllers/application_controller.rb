@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
 
+    def require_login
+      unless current_user
+        redirect_to root_url, :notice => "You must be logged in to access this page."
+        return false
+      end
+    end
+
     def flash_class(level)
         case level
         when :notice then "info"
@@ -15,5 +22,5 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    helper_method :current_user, :flash_class
+    helper_method :current_user, :flash_class, :require_login
 end

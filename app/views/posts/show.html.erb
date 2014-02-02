@@ -1,9 +1,46 @@
-<article>
-<header>
-<h2><%= @post.title %></h2>
-</header>
-<%= render_markdown(@post.content) %>
-</article>
-<footer>
-<span class="text-muted pull-right">Published <%= @post.created_at %> by <%= mail_to @post.user.email, @post.user.name %></span>
-</footer>
+<%
+    content_for(:title, @post.title)
+content_for(:description, "#{@post.title} - #{@post.tags.map(&:tag).join(", ")}")
+%>
+
+<% if current_user %>
+    <div class="row">
+    <div class="col-md-6">
+        <ul class="list-inline">
+            <li><%= link_to "Delete", @post, :method => :delete, :confirm => "Are you sure you want to remove the post?" %></li>
+            <li><%= link_to "Edit", edit_post_path(@post) %></li>
+        </ul>
+    </div>
+    <div class="col-md-4 col-md-offset-2">
+        <%= form_tag post_tags_path(:post_id => @post.id) do %>
+            <div class="form-group">
+                <%= select_tag :tag_id, 
+                    options_from_collection_for_select(Tag.all, "id", "tag"), 
+                    :class => "form-control",
+                    :prompt => "Add tag" %>
+        </div>
+    <% end %>
+    </div>
+</div>
+<% end %>
+
+<div class="row">
+    <div class="col-md-12">
+        <article>
+            <header>
+                <h2><%= @post.title %></h2>
+                Published
+                <time><%= @post.created_at.to_formatted_s(:short) %></time>
+                by <%= mail_to @post.user.email, @post.user.name %>
+            </header>
+            <hr>
+            <%= render_markdown(@post.content) %>
+            <% if @post.tags.count > 0 %>
+                <br />
+                <span class="pull-right">
+                    This post has been tagged with <%= @post.tags.map{|t| link_to t.tag, t}.to_sentence.html_safe %>.
+                </span>
+            <% end %>
+        </article>
+    </div>
+</div>
