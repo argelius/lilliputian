@@ -13,11 +13,12 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <h1>
-                        <%= title %>
+                        <%= link_to title, root_url %>
                         <small>
                             <%= sub_title %>
                         </small>
                     </h1>
+                    <hr>
                 </div>
             </div>
             <div class="row">
@@ -35,9 +36,10 @@
                     <hr>
                     <footer>
                     &copy; 2014 Author
-                    <span class="pull-right text-muted">This blog uses <%= link_to "Lilliputian", "http://www.bitbucket.org/argelius/lilliputian" %>, a tiny blog application i Rails.</span>
+                    <span class="pull-right text-muted">This blog uses <%= link_to "Lilliputian", "http://www.bitbucket.org/argelius/lilliputian" %>, a tiny blog application in Rails.</span>
                     </footer>
                 </div>
             </div>
-        </body>
-    </html>
+        </div>
+    </body>
+</html>

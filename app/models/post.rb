@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+    self.per_page = 10
+    
     belongs_to :user
 
     validates_presence_of :user_id
