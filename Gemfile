@@ -54,8 +54,5 @@ gem 'redcarpet', '~> 3.0.0'
 # Will paginate
 gem 'will_paginate', '~> 3.0'
 
-# Pagination
-gem "will_paginate", "~> 3.0"
-
 # Slug generation
 gem "to_slug", "~> 1.0.8"
