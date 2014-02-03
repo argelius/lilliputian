@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-6">
         <strong><%= link_to p.title, p %></strong>
-        <p><%= truncate(strip_tags(render_markdown(p.content)).html_safe, length: 250) %></p>
+        <p><%= truncate(strip_tags(render_markdown(p.content)).html_safe, length: 250, :escape => false) %></p>
     </div>
 </div>
 <% end %>
