@@ -56,3 +56,6 @@ gem 'will_paginate', '~> 3.0'
 
 # Slug generation
 gem "to_slug", "~> 1.0.8"
+
+# Database
+gem "pg"

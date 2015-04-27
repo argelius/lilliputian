@@ -9,14 +9,14 @@ module ApplicationHelper
     end
 
     def title
-        "Lilliputian"
+        "argeli.us"
     end
 
     def author
-        "The Author"
+        "Andreas Argelius"
     end
 
     def sub_title
-        "sub title"
+        "development blog"
     end
 end
